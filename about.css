@@ -1,0 +1,67 @@
+body{
+    background: url('background.jpg') no-repeat center center/cover;
+    height: 900px;
+}
+
+/* About Me Section Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fafafa;
+}
+
+#about-me {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 83vh;
+}
+
+.container {
+    text-align: center;
+    /* background: rgba(255, 255, 255, 0.8); Semi-transparent background */
+    border-radius: 20px;
+    padding: 20px;
+    border: 5px dashed rgba(255, 99, 71, 0.8); /* Semi-transparent retro dashed border */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px); /* Optional: adds a frosted glass effect */
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ff6347; /* Bold color */
+}
+
+.profile {
+    display: inline-block;
+    text-align: center;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid #ff6347; /* Bold color border */
+}
+
+.bio {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #ff6347; /* Bold color */
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #333;
+}

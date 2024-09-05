@@ -1,0 +1,64 @@
+body{
+    background: url('background.jpg') no-repeat center center/cover;
+    height: 900px;
+}
+#portfolio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    /* background: #f4f4f4; */
+    min-height: 86vh; /* Ensure it takes at least full viewport height */
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);    /* Semi-transparent background */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h2 {
+    color: #ff6347; /* Bright color for the heading */
+    margin-bottom: 30px;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.project {
+    flex: 1 1 calc(33% - 20px);
+    box-sizing: border-box;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.project h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.project p {
+    color: #666;
+}

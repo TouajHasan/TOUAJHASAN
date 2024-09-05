@@ -1,0 +1,92 @@
+/* Global Styles */
+body{
+    background: url(background.jpg);
+}
+/* Centering the Contact Section */
+/* Global Styles */
+
+/* Centering the Contact Section */
+#contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    /* background: #f4f4f4; Slightly different background to see the border clearly */
+    min-height: 86vh; /* Ensure it takes at least full viewport height */
+}
+
+.container {
+    max-width: 800px;
+    width: 100%; /* Full width of the parent element */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.432); /* Semi-transparent background */
+    border: 2px solid rgba(255, 99, 71, 0.5); /* Semi-transparent border */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h2 {
+    color: #ff5347; /* Bright color for the heading */
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+.contact-info {
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+.contact-info a {
+    color: #4dff47;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 15px;
+    background-color: #ff6347; /* Bright button color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e5533d; /* Darker shade on hover */
+}

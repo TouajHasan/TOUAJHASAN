@@ -1,0 +1,160 @@
+body{
+    background-color: black;
+}
+
+/* Header Styling */
+header {
+    background: rgba(0, 0, 0, 0.5); /* Transparent background */
+    color: #fff;
+    padding: 15px 0;
+    position: fixed; /* Keeps navbar fixed at the top */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for separation */
+}
+
+/* Navbar Container */
+.navbar-container {
+    display: flex;
+    justify-content: space-between; /* Distribute space between logo and nav */
+    align-items: center; /* Vertically align items */
+    max-width: 1200px; /* Optional: Adjust width as needed */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Add some horizontal padding */
+}
+
+/* Logo Styling */
+.logo h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #bb0404;
+}
+
+/* Navbar Styling */
+nav {
+    display: flex;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Hover Effects */
+nav ul li a:hover {
+    background: linear-gradient(45deg, #ff6b6b, #f06595); /* Gradient background */
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+}
+
+/* Home Section Styling */
+.home {
+    background: url('background.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 289px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.text-container {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.text-container h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.text-container p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: #f06595;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #ff6b6b;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.image-container img {
+    border-radius: 50%;
+    max-width: 250px; /* Adjust the size as needed */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.JR{
+    color: red;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
+.SHOUNTO{
+    color: green;
+    margin-left:80px;
+    display: inline-block;
+}
