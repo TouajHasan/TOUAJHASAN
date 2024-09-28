@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JR. Penetration Tester Skills</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background-color: black;
+            color: #fff;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #bb0404;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: linear-gradient(45deg, #ff6b6b, #f06595);
+            border-radius: 5px;
+            transform: scale(1.1);
+        }
+
+        /* Skills Section Styles */
+        .skills-section {
+            padding: 100px 20px; /* Add padding for header space */
+            text-align: center;
+        }
+
+        .skills-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #f06595;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px; /* Added gap between items */
+        }
+
+        .skill-item {
+            position: relative;
+            margin: 15px;
+            width: 172px; /* Size of the circle */
+            height: 172px; /* Size of the circle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            overflow: hidden;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2em; /* Font size */
+            animation: fadeIn 0.5s forwards;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+            transform: scale(1);
+            transition: transform 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1); /* Scale up on hover */
+        }
+
+        .circle {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border-radius: 50%;
+            clip-path: circle(50%);
+            background: conic-gradient(
+                #4caf50 var(--percentage, 0%),
+                #292929 var(--percentage, 0%),
+                #292929 100%
+            );
+            transition: background 0.5s ease;
+            animation: growCircle 1s ease forwards; /* Animation for the circle */
+        }
+
+        @keyframes growCircle {
+            from {
+                transform: scale(0); /* Start small */
+            }
+            to {
+                transform: scale(1); /* Grow to full size */
+            }
+        }
+
+        .skill-percentage {
+            position: relative;
+            z-index: 1; /* Ensure text is above the circle */
+            font-size: 1.5em; /* Increase percentage font size */
+            animation: fadeIn 0.5s forwards;
+        }
+
+        /* Programming Languages Section */
+        .programming-section {
+            margin-top: 40px; /* Margin for separation */
+            background-color: #444; /* Background color for the programming languages section */
+            padding: 30px;
+            border-radius: 10px; /* Rounded corners */
+            animation: fadeIn 0.5s forwards;
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between circles */
+            flex-wrap: wrap; /* Wrap items in the section */
+        }
+
+        .programming-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #f06595;
+            text-align: center;
+            width: 100%; /* Full width for title */
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .flat-skill {
+            position: relative;
+            width: 120px; /* Adjusted width */
+            height: 120px; /* Adjusted height */
+            border-radius: 50%; /* Circle style */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2em; /* Adjusted font size for labels */
+            background: #007acc; /* Default color */
+            animation: fadeIn 0.5s forwards;
+            transition: transform 0.3s, background-color 0.3s; /* Added transition for background color */
+            overflow: hidden; /* Ensures text is contained */
+        }
+        
+        .flat-skill:hover {
+            transform: scale(1.05); /* Slight scale on hover */
+            background-color: #f06595; /* Change color on hover */
+        }
+
+        /* Different colors for each programming language */
+        .flat-skill:nth-child(1) {
+            background-color: #FFD700; /* Gold for Python */
+        }
+
+        .flat-skill:nth-child(2) {
+            background-color: #FF4500; /* OrangeRed for JavaScript */
+        }
+
+        .flat-skill:nth-child(3) {
+            background-color: #007acc; /* SteelBlue for SQL */
+        }
+
+        .flat-skill:nth-child(4) {
+            background-color: #8A2BE2; /* BlueViolet for Bash */
+        }
+
+        /* Helicopter animation */
+        .helicopter {
+            position: absolute;
+            width: 60px; /* Width of the helicopter */
+            height: 30px; /* Height of the helicopter */
+            border-radius: 5px; /* Slightly rounded edges */
+            opacity: 0.9; /* Slightly more opaque */
+            transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth animation */
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.7); /* Glow effect */
+            background: linear-gradient(45deg, #3498db, #2ecc71); /* Gradient for the helicopter */
+            overflow: hidden; /* Prevent overflow */
+        }
+
+        /* Helicopter rotor */
+        .rotor {
+            position: absolute;
+            width: 4px; /* Width of the rotor */
+            height: 30px; /* Height of the rotor */
+            background: #2c3e50; /* Rotor color */
+            top: -15px; /* Position above the helicopter */
+            left: 50%; /* Center the rotor */
+            transform: translateX(-50%); /* Center alignment */
+            animation: spin 1s linear infinite; /* Spin animation */
+        }
+
+        @keyframes spin {
+            0% { transform: translateX(-50%) rotate(0deg); }
+            100% { transform: translateX(-50%) rotate(360deg); }
+        }
+
+        /* Butterfly container */
+        #butterfly-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Prevent interaction */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .skill-item {
+                flex: 0 0 30%; /* 3 items per row */
+                max-width: 172px; /* Ensure max width */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .skills-title {
+                font-size: 2em;
+            }
+
+            .flat-skill {
+                width: 80px; /* Responsive width */
+                height: 80px; /* Responsive height */
+                font-size: 1em; /* Responsive font size */
+            }
+
+            .programming-title {
+                font-size: 1.5em; /* Responsive title size */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar-container">
+            <div class="logo">
+                <h1><span class="animated-logo">SHOUNTO</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="skills-section">
+        <h2 class="skills-title">Skills of JR. Penetration Tester</h2>
+        <div class="skills-container">
+            <div class="skill-item" style="--percentage: 80%;">
+                <div class="circle"></div>
+                <div class="skill-percentage">Network Security</div>
+            </div>
+            <div class="skill-item" style="--percentage: 75%;">
+                <div class="circle"></div>
+                <div class="skill-percentage">Vulnerability Scanning</div>
+            </div>
+            <div class="skill-item" style="--percentage: 70%;">
+                <div class="circle"></div>
+                <div class="skill-percentage">Web App Security</div>
+            </div>
+            <div class="skill-item" style="--percentage: 90%;">
+                <div class="circle"></div>
+                <div class="skill-percentage">Penetration Testing</div>
+            </div>
+            <div class="skill-item" style="--percentage: 85%;">
+                <div class="circle"></div>
+                <div class="skill-percentage">Social Engineering</div>
+            </div>
+            <div class="skill-item" style="--percentage: 95%;">
+                <div class="circle"></div>
+                <div class="skill-percentage">Reporting</div>
+            </div>
+        </div>
+
+        <div class="programming-section">
+            <h3 class="programming-title">Programming Language Skills</h3>
+            <div class="flat-skill">Python</div>
+            <div class="flat-skill">JavaScript</div>
+            <div class="flat-skill">SQL</div>
+            <div class="flat-skill">Bash Script</div>
+        </div>
+    </div>
+
+    <div id="butterfly-container"></div>
+
+    <footer style="text-align: center; padding: 20px 0;">
+        <p>&copy; 2024 Touaj Hasan. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Function to create a helicopter-like element
+        function createHelicopter(x, y) {
+            const helicopter = document.createElement('div');
+            helicopter.className = 'helicopter';
+            helicopter.style.left = `${x}px`;
+            helicopter.style.top = `${y}px`;
+
+            // Create rotor element
+            const rotor = document.createElement('div');
+            rotor.className = 'rotor';
+            helicopter.appendChild(rotor); // Attach rotor to the helicopter
+
+            document.getElementById('butterfly-container').appendChild(helicopter);
+
+            // Animate the helicopter away
+            setTimeout(() => {
+                const randomX = (Math.random() - 0.5) * 300; // Random x position for explosion
+                const randomY = (Math.random() - 1) * 300; // Random y position for explosion
+                helicopter.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${Math.random() * 360}deg)`; // Move away with rotation
+                helicopter.style.opacity = '0'; // Fade out
+            }, 100);
+
+            // Remove the helicopter after animation
+            setTimeout(() => {
+                helicopter.remove();
+            }, 2000); // Match this duration to the animation duration
+        }
+
+        // Mouse move event
+        document.addEventListener('mousemove', (event) => {
+            createHelicopter(event.clientX, event.clientY);
+        });
+    </script>
+</body>
+</html>

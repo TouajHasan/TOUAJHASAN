@@ -3,9 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="portfolio.css"> <!-- Link to your CSS file -->
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
     <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #000; /* কালো ব্যাকগ্রাউন্ড */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            color: #ff6347; /* লোগোর রঙ */
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none; /* পয়েন্টার মুছে দিন */
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px; /* আইটেমের মধ্যে ফাঁকা জায়গা */
+        }
+
+        nav ul li a {
+            text-decoration: none; /* আন্ডারলাইন মুছে দিন */
+            color: #fff; /* সাদা রঙ */
+            font-weight: bold;
+            transition: color 0.3s ease; /* রঙের পরিবর্তনের অ্যানিমেশন */
+        }
+
+        nav ul li a:hover {
+            color: #0b7719; /* হোভার করার সময় রঙ পরিবর্তন */
+        }
+
+        .portfolio {
+            display: flex;
+            flex-direction: column; /* কলাম অনুযায়ী স্থাপন */
+            align-items: center; /* কেন্দ্রীভূত করতে */
+            padding: 50px 20px;
+            height: auto; /* স্বাভাবিক উচ্চতা */
+            background-color: #f9f9f9; /* ব্যাকগ্রাউন্ড রঙ পরিবর্তন */
+            overflow: auto; /* স্ক্রল করার জন্য */
+        }
+
+        h2 {
+            color: #ff6347; /* শিরোনামের রঙ */
+            margin-bottom: 30px;
+            text-align: center; /* কেন্দ্রীভূত করতে */
+            font-size: 2.5em; /* বড় শিরোনাম */
+            position: relative; /* পজিশনিং */
+            animation: colorChange 3s infinite alternate; /* অ্যানিমেশন যোগ করা হয়েছে */
+        }
+
+        @keyframes colorChange {
+            0% { color: #ff6347; }
+            25% { color: #ffcc00; }
+            50% { color: #00ccff; }
+            75% { color: #cc00ff; }
+            100% { color: #00ff00; }
+        }
+
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%; /* সম্পূর্ণ প্রস্থ */
+        }
+
+        .project {
+            flex: 1 1 calc(30% - 20px); /* 3টি প্রোজেক্ট দেখানোর জন্য */
+            box-sizing: border-box;
+            background: #fff;
+            padding: 20px; /* প্যাডিং */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative; /* প্রয়োজনীয় */
+            overflow: hidden; /* অবশিষ্ট অংশ লুকানো */
+            min-height: 300px; /* মিনিমাম উচ্চতা নির্ধারণ করা হয়েছে */
+            margin: 10px; /* প্রোজেক্টের মধ্যে কিছু মার্জিন যোগ করুন */
+            text-align: center; /* টেক্সট কেন্দ্রে রাখতে */
+        }
+
+        .project img {
+            width: 100%;
+            height: auto; /* সঠিক অনুপাত বজায় রাখার জন্য */
+            transition: transform 0.3s ease; /* জুম করার জন্য */
+            border-radius: 10px; /* কোণের জন্য */
+        }
+
+        .project:hover img {
+            transform: scale(1.1); /* জুম আউট */
+        }
+
+        .project h3 {
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .project p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+         /* Butterfly animation */
+         .butterfly {
+            position: absolute;
+            width: 30px; /* Increased width */
+            height: 30px; /* Increased height */
+            background-color: #f06595; /* Default butterfly color */
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Butterfly shape */
+            opacity: 0.9; /* Slightly more opaque */
+            transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth animation */
+            border: 2px solid #fff; /* White border for contrast */
+            border-radius: 50%; /* Rounded edges for a softer look */
+        }
+
+        @keyframes colorChanges {
+            0% { background-color: #f06595; }
+            25% { background-color: #ffdc00; }
+            50% { background-color: #00ff7f; }
+            75% { background-color: #1e90ff; }
+            100% { background-color: #ff69b4; }
+        }
+
+        /* Updated butterfly-container style */
+        #butterfly-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: rgba(255, 255, 255, 0.1); /* Slight transparent background */
+            overflow: hidden; /* Prevent overflow */
+            backdrop-filter: blur(10px); /* Blur effect */
+        }
+    </style>
 </head>
 <body>
 
@@ -20,35 +169,111 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    
                 </ul>
             </nav>
         </div>
     </header>
     
-    <section id="portfolio">
-        <div class="container">
-            <h2>My Portfolio</h2>
-            <div class="projects">
-                <div class="project">
-                    <img src="images/SQL.jpg" alt="Project 1">
-                    <h3>Lab Solve</h3>
-                    <p>I'm Solving many Labs in SQL vulnerability.</p>
-                </div>
-                <div class="project">
-                    <img src="project2.jpg" alt="Project 2">
-                    <h3>Project Title 2</h3>
-                    <p>A brief description of Project 2, highlighting the key features and your role in it.</p>
-                </div>
-                <div class="project">
-                    <img src="project3.jpg" alt="Project 3">
-                    <h3>Project Title 3</h3>
-                    <p>A brief description of Project 3, highlighting the key features and your role in it.</p>
-                </div>
-                <!-- Add more projects as needed -->
+    <section class="portfolio">
+        <h2>My Portfolio</h2>
+        <div class="projects">
+            <div class="project">
+                <img src="image/FUFF.png" alt="Project 1">
+                <h3>FFUF</h3>
+                <p>Lab Solving in TryHackme</p>
+            </div>
+            <div class="project">
+                <img src="image/XSS.png" alt="Project 2">
+                <h3>XSS</h3>
+                <p>Lab Solving in TryHackme</p>
+            </div>
+            <div class="project">
+                <img src="image/SQL Injection.png" alt="Project 3">
+                <h3>Intro to Defensive Security</h3>
+                <p>Lab Solving in TryHackme</p>
+            </div>
+            <div class="project">
+                <img src="image/Web Application Security.png" alt="Project 4">
+                <h3>Web Application Security</h3>
+                <p>Lab Solving in TryHackme</p>
+            </div>
+            <div class="project">
+                <img src="image/Intro to Offensive Security.png" alt="Project 5">
+                <h3>Intro to Offensive Security</h3>
+                <p>Lab Solving in TryHackme</p>
+            </div>
+            <div class="project">
+                <img src="image/Intro to Digital Forensics.png" alt="Project 6">
+                <h3>Intro to Digital Forensics</h3>
+                <p>Lab Solving in TryHackme</p>
+            </div>
+            <div class="project">
+                <img src="image/Red Team Engagements.png" alt="Project 7">
+                <h3>Red Team Engagements</h3>
+                <p>Lab Solving in TryHackme</p>
+            </div>
+            <div class="project">
+                <img src="image/Red Team Fundamentals.png" alt="Project 8">
+                <h3>Red Team Fundamentals</h3>
+                <p>Lab Solving in TryHackme</p>
+            </div>
+            <div class="project">
+                <img src="image/Red Team Threat Intel.png" alt="Project 9">
+                <h3>Red Team Threat Intel</h3>
+                <p>Lab Solving in TryHackme</p>
+            </div>
+            <div class="project">
+                <img src="image/Red Team OPSEC.png" alt="Project 10">
+                <h3>Red Team OPSEC</h3>
+                <p>Lab Solving in TryHackme</p>
+            </div>
+            <div class="project">
+                <img src="image/Intro to Defensive Security.png" alt="Project 11">
+                <h3>Intro to Defensive Security</h3>
+                <p>Lab Solving in TryHackme5</p>
+            </div>
+            <div class="project">
+                <img src="image/Careers-in-Cyber.png" alt="Project 12">
+                <h3>Careers in Cyber</h3>
+                <p>Description of New Project 6</p>
             </div>
         </div>
     </section>
-    
+    <div id="butterfly-container"></div>
 
+    
 </body>
+
+<script>
+
+// Function to create a butterfly element
+        function createButterfly(x, y) {
+            const butterfly = document.createElement('div');
+            butterfly.className = 'butterfly';
+            butterfly.style.left = `${x}px`;
+            butterfly.style.top = `${y}px`;
+            butterfly.style.animation = 'colorChange 2s infinite'; // Add color change animation
+            document.getElementById('butterfly-container').appendChild(butterfly);
+
+            // Animate the butterfly away
+            setTimeout(() => {
+                const randomX = (Math.random() - 0.5) * window.innerWidth; // Random x position
+                const randomY = (Math.random() - 1) * window.innerHeight; // Random y position
+                butterfly.style.transform = `translate(${randomX}px, ${randomY}px)`; // Move away
+                butterfly.style.opacity = '0'; // Fade out
+            }, 100);
+
+            // Remove the butterfly after animation
+            setTimeout(() => {
+                butterfly.remove();
+            }, 2000); // Match this duration to the animation duration
+        }
+
+        // Mouse move event
+        document.addEventListener('mousemove', (event) => {
+            createButterfly(event.clientX, event.clientY);
+        });
+</script>
 </html>

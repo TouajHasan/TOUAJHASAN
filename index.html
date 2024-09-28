@@ -4,40 +4,281 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Touaj Hasan Portfolio</title>
-    <link rel="stylesheet" href="index.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="index.css">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background-color: black; /* Changed background to black */
+            color: #fff; /* Default text color to white for better contrast */
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #bb0404;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: linear-gradient(45deg, #ff6b6b, #f06595);
+            border-radius: 5px;
+            transform: scale(1.1);
+        }
+
+        /* Home Section */
+        .home {
+            background: rgba(0, 0, 0, 0.8); /* Slightly transparent black background */
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 70px; /* To avoid overlap with fixed header */
+        }
+
+        .home-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .text-container {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .text-container h1 {
+            font-size: 3em;
+        }
+
+        .text-container p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #f06595;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #ff6b6b;
+            transform: translateY(-2px);
+        }
+
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-container img {
+            border-radius: 50%;
+            max-width: 250px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+
+         /* Butterfly animation */
+         .butterfly {
+            position: absolute;
+            width: 50px; /* Size of the butterfly */
+            height: 50px; /* Size of the butterfly */
+            background: radial-gradient(circle, #ff69b4, #ff1493); /* Initial gradient */
+            border-radius: 50%; /* Make it round */
+            opacity: 0.9; /* Slightly more opaque */
+            transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth animation */
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5); /* Glow effect */
+            animation: colorChange 3s infinite alternate; /* Color change animation */
+        }
+
+        @keyframes colorChange {
+            0% { background: radial-gradient(circle, #ff69b4, #ff1493); }
+            25% { background: radial-gradient(circle, #ffdc00, #ff8c00); }
+            50% { background: radial-gradient(circle, #00ff7f, #008000); }
+            75% { background: radial-gradient(circle, #1e90ff, #0000ff); }
+            100% { background: radial-gradient(circle, #ff69b4, #ff1493); }
+        }
+
+        /* Butterfly-container style */
+        #butterfly-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1)); /* Soft gradient */
+            overflow: hidden; /* Prevent overflow */
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="navbar-container">
             <div class="logo">
-                <h1>SHOUNTO</h1>
+                <h1><span class="animated-logo">SHOUNTO</span></h1>
             </div>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="skills.html">Skills</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <div class="home-content">
+            <div class="text-container">
+                <h1>Hello, I'm <span class="highlight">Touaj Hasan</span></h1>
+                <p>Welcome to my portfolio website.</p>
+                <p>I'm a <span class="dynamic-text" id="job-title">JR. Penetration Tester</span></p>
+                <a href="portfolio.html" class="btn">View My Work</a>
+            </div>
+            <div class="image-container">
+                <img src="profile.jpg" alt="Profile Picture">
+            </div>
+        </div>
+    </section>
+
+    <div id="butterfly-container"></div>
+
+    <footer>
+        <p>&copy; 2024 Touaj Hasan. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const titles = [
+            "JR. Penetration Tester",
+            "Fontent Developer",
+            "Cybersecurity Enthusiast",
+            "Bug Hunter",
+            "Software Engineer",
+            "CTF Player"
+        ];
+
+        const colors = [
+            "#f06595",
+            "#ffcc00",
+            "#00ccff",
+            "#cc00ff",
+            "#00ff00"
+        ];
     
-<!-- Home Section -->
-<section id="home" class="home">
-    <div class="home-content">
-        <div class="text-container">
-            <h1>Hello, I'm <span class="SHOUNTO"> Touaj Hasan</span></h1>
-            <p>Welcome to my portfolio website.</p>
-            <p>I'm <span class="JR">JR. Pnetrations Tester</span></p>
-            <a href="portfolio.html" class="btn">View My Work</a>
-        </div>
-        <div class="image-container">
-            <img src="profile.jpg" alt="Your Photo">
-        </div>
-    </div>
-</section>
+        let currentIndex = 0;
+        const jobTitleElement = document.getElementById("job-title");
+
+        function changeTitle() {
+            jobTitleElement.style.transition = "opacity 0.5s, color 0.5s"; // Transition for both
+            jobTitleElement.style.opacity = 0; // Fade out
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % titles.length; // Move to the next title
+                jobTitleElement.textContent = titles[currentIndex]; // Change text
+                jobTitleElement.style.color = colors[currentIndex]; // Change color
+                jobTitleElement.style.opacity = 1; // Fade in
+            }, 500); // Wait for fade out to complete
+        }
+
+        setInterval(changeTitle, 3000); // Change title every 3 seconds
 
 
+         // Function to create a butterfly element
+         function createButterfly(x, y) {
+            const butterfly = document.createElement('div');
+            butterfly.className = 'butterfly';
+            butterfly.style.left = `${x}px`;
+            butterfly.style.top = `${y}px`;
+            butterfly.style.animation = 'colorChange 2s infinite'; // Add color change animation
+            document.getElementById('butterfly-container').appendChild(butterfly);
+
+            // Animate the butterfly away
+            setTimeout(() => {
+                const randomX = (Math.random() - 0.5) * window.innerWidth; // Random x position
+                const randomY = (Math.random() - 1) * window.innerHeight; // Random y position
+                butterfly.style.transform = `translate(${randomX}px, ${randomY}px)`; // Move away
+                butterfly.style.opacity = '0'; // Fade out
+            }, 100);
+
+            // Remove the butterfly after animation
+            setTimeout(() => {
+                butterfly.remove();
+            }, 2000); // Match this duration to the animation duration
+        }
+
+        // Mouse move event
+        document.addEventListener('mousemove', (event) => {
+            createButterfly(event.clientX, event.clientY);
+        });
+    </script>
 </body>
 </html>

@@ -1,40 +1,86 @@
-body{
-    background-color: black;
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background-color: black; /* Changed background to black */
+    color: #fff; /* Default text color to white for better contrast */
 }
 
-/* Header Styling */
+
+
+
+
+/* Animated Logo */
+.animated-logo {
+    display: inline-block; /* Required for the transform effects */
+    transition: transform 0.5s ease, color 0.5s ease; /* Smooth transition */
+}
+
+/* Animation on Hover */
+.header:hover .animated-logo {
+    transform: scale(1.2); /* Scale up the logo */
+    color: #f06595; /* Change color on hover */
+}
+
+/* Initial Animation */
+@keyframes logoFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated-logo {
+    animation: logoFadeIn 1s ease forwards; /* Apply fade-in animation */
+}
+
+
+
+
+
+.dynamic-text {
+    font-weight: bold;
+    color: #f06595; /* Change to your preferred color */
+    transition: opacity 0.5s ease;
+}
+
+
+
+
+
+
+
+/* Header Styles */
 header {
-    background: rgba(0, 0, 0, 0.5); /* Transparent background */
+    background: rgba(0, 0, 0, 0.8);
     color: #fff;
     padding: 15px 0;
-    position: fixed; /* Keeps navbar fixed at the top */
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1000; /* Ensure it stays above other content */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for separation */
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
 }
 
-/* Navbar Container */
 .navbar-container {
     display: flex;
-    justify-content: space-between; /* Distribute space between logo and nav */
-    align-items: center; /* Vertically align items */
-    max-width: 1200px; /* Optional: Adjust width as needed */
-    margin: 0 auto; /* Center the container */
-    padding: 0 20px; /* Add some horizontal padding */
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Logo Styling */
 .logo h1 {
     margin: 0;
     font-size: 1.8em;
     color: #bb0404;
-}
-
-/* Navbar Styling */
-nav {
-    display: flex;
 }
 
 nav ul {
@@ -49,46 +95,27 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     font-weight: bold;
     padding: 10px 20px;
-    transition: background 0.3s, color 0.3s; /* Smooth transition */
+    transition: background 0.3s, transform 0.3s;
 }
 
-/* Hover Effects */
 nav ul li a:hover {
-    background: linear-gradient(45deg, #ff6b6b, #f06595); /* Gradient background */
-    color: #fff;
+    background: linear-gradient(45deg, #ff6b6b, #f06595);
     border-radius: 5px;
+    transform: scale(1.1);
 }
 
-/* Responsive Navbar */
-@media (max-width: 768px) {
-    .navbar-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-        text-align: center;
-    }
-}
-
-/* Home Section Styling */
+/* Home Section */
 .home {
-    background: url('background.jpg') no-repeat center center/cover;
-    color: #fff;
-    padding: 289px 20px;
+    background: rgba(0, 0, 0, 0.8); /* Slightly transparent black background */
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .home-content {
@@ -97,20 +124,43 @@ nav ul li a:hover {
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
     padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Light semi-transparent background for contrast */
     border-radius: 10px;
+    animation: slideIn 1s ease-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .text-container {
     flex: 1;
     margin-right: 20px;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .text-container h1 {
     font-size: 3em;
     margin-bottom: 20px;
-    font-weight: bold;
 }
 
 .text-container p {
@@ -126,11 +176,12 @@ nav ul li a:hover {
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .btn:hover {
     background: #ff6b6b;
+    transform: translateY(-2px);
 }
 
 .image-container {
@@ -141,20 +192,19 @@ nav ul li a:hover {
 
 .image-container img {
     border-radius: 50%;
-    max-width: 250px; /* Adjust the size as needed */
+    max-width: 250px;
     width: 100%;
     height: auto;
     object-fit: cover;
 }
 
-.JR{
-    color: red;
-    margin-top: 25px;
-    margin-left: 10px;
-}
-
-.SHOUNTO{
-    color: green;
-    margin-left:80px;
-    display: inline-block;
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }

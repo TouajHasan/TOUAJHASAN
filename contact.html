@@ -7,6 +7,42 @@
     <link rel="stylesheet" href="contact.css">
     <link rel="stylesheet" href="index.css">
 </head>
+
+<style>
+
+      /* Butterfly animation */
+      .butterfly {
+            position: absolute;
+            width: 40px; /* Increased width */
+            height: 40px; /* Increased height */
+            background-color: #f06595; /* Default butterfly color */
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Butterfly shape */
+            opacity: 0.9; /* Slightly more opaque */
+            transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth animation */
+            border-radius: 50%; /* Rounded edges for a softer look */
+            filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.8)); /* Soft shadow for depth */
+        }
+
+        @keyframes colorChange {
+            0% { background-color: #f06595; }
+            25% { background-color: #ffdc00; }
+            50% { background-color: #00ff7f; }
+            75% { background-color: #1e90ff; }
+            100% { background-color: #ff69b4; }
+        }
+
+        /* Butterfly-container style */
+        #butterfly-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1)); /* Soft gradient */
+            overflow: hidden; /* Prevent overflow */
+        }
+</style>
 <body>
 
 
@@ -20,7 +56,8 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="skills.html">Skills</a></li>
                 </ul>
             </nav>
         </div>
@@ -53,5 +90,36 @@
             </form>
         </div>
     </section>
+    <div id="butterfly-container"></div>
 </body>
+
+<script>
+    // Function to create a butterfly element
+    function createButterfly(x, y) {
+        const butterfly = document.createElement('div');
+        butterfly.className = 'butterfly';
+        butterfly.style.left = `${x}px`;
+        butterfly.style.top = `${y}px`;
+        butterfly.style.animation = 'colorChange 2s infinite'; // Add color change animation
+        document.getElementById('butterfly-container').appendChild(butterfly);
+
+        // Animate the butterfly away with a floating effect
+        setTimeout(() => {
+            const randomX = (Math.random() - 0.5) * 100; // Random x position
+            const randomY = (Math.random() - 1) * 100; // Random y position
+            butterfly.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${Math.random() * 360}deg)`; // Move away with rotation
+            butterfly.style.opacity = '0'; // Fade out
+        }, 100);
+
+        // Remove the butterfly after animation
+        setTimeout(() => {
+            butterfly.remove();
+        }, 2000); // Match this duration to the animation duration
+    }
+
+    // Mouse move event
+    document.addEventListener('mousemove', (event) => {
+        createButterfly(event.clientX, event.clientY);
+    });
+</script>
 </html>
